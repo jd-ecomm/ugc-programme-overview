@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UGC Programme Overview · JD Sports Canada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --yellow: #FFE000;
+  --yellow-dim: rgba(255, 224, 0, 0.5);
+  --yellow-glow: rgba(255, 224, 0, 0.18);
+  --yellow-faint: rgba(255, 224, 0, 0.06);
+  --bg: #000;
+  --bg-1: #0a0a0a;
+  --bg-2: #141414;
+  --bg-3: #1c1c1c;
+  --border: #2a2a2a;
+  --border-2: #3a3a3a;
+  --text: #fff;
+  --text-2: #b8b8b8;
+  --text-3: #757575;
+  --text-4: #444;
+  --good: #6BCB77;
+  --bad: #FF6B6B;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+html, body { background: var(--bg); color: var(--text); font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5; }
+body { min-height: 100vh; padding-bottom: 60px; }
+.bc { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.01em; }
+
+/* ICONS */
+.icon { display: inline-block; vertical-align: -3px; width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.icon-y { stroke: var(--yellow); }
+.icon-lg { width: 22px; height: 22px; vertical-align: -5px; }
+.icon-sm { width: 13px; height: 13px; vertical-align: -2px; }
+.icon-inline { vertical-align: -2px; margin-right: 4px; }
+
+/* HEADER */
+.header { border-bottom: 1px solid var(--border); padding: 24px 32px; display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.header-brand { font-size: 10px; letter-spacing: 0.22em; color: var(--yellow); font-weight: 700; }
+.header h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1; margin-top: 4px; }
+.header-meta { font-size: 12px; color: var(--text-3); margin-top: 8px; }
+.header-logo { display: flex; align-items: center; padding-right: 8px; }
+.header-logo img { height: 56px; width: auto; display: block; }
+.header-stripe { height: 4px; background: var(--yellow); }
+
+/* STICKY NAV */
+.nav-wrap { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); background: rgba(0,0,0,0.92); }
+.nav { display: flex; align-items: center; padding: 0 32px; max-width: 100%; overflow-x: auto; }
+.nav-item { padding: 14px 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.15s; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit; white-space: nowrap; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.nav-item:hover { color: var(--text); }
+.nav-item.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+.nav-spacer { flex: 1; }
+.nav-actions { display: flex; gap: 8px; padding: 8px 0; }
+.btn { background: transparent; border: 1px solid var(--border-2); color: var(--text-2); padding: 8px 14px; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+.btn:hover { border-color: var(--yellow); color: var(--yellow); }
+.btn.active { background: var(--yellow); color: #000; border-color: var(--yellow); }
+.btn-y { border-color: var(--yellow); color: var(--yellow); }
+.btn-y:hover { background: var(--yellow); color: #000; }
+
+/* SECTIONS */
+.section { padding: 40px 32px; border-bottom: 1px solid var(--border); scroll-margin-top: 80px; }
+.section-header { text-align: center; margin-bottom: 28px; }
+.section-label { font-size: 10px; letter-spacing: 0.22em; color: var(--yellow); font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 14px; text-align: center; }
+.section-intro { font-size: 14px; color: var(--text-2); max-width: 900px; line-height: 1.65; margin-bottom: 28px; margin-left: auto; margin-right: auto; text-align: center; }
+.engine-grid, .map, .outputs, .gantt-wrap, .scenario-wrap, .note { text-align: left; }
+.flow-arrow { text-align: center; }
+.scenario-question { text-align: center; }
+.scenario-subtitle { text-align: center; }
+.scenario-progress { max-width: 600px; margin-left: auto; margin-right: auto; }
+.engine-grid, .map, .outputs { margin-left: auto; margin-right: auto; }
+.note { max-width: 1100px; margin-left: auto; margin-right: auto; }
+
+/* TOOLTIP */
+.tip { border-bottom: 1px dotted var(--yellow-dim); cursor: help; position: relative; }
+.tip:hover { color: var(--yellow); }
+.tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--bg-2); border: 1px solid var(--yellow); padding: 8px 12px;
+  font-size: 11px; color: var(--text); line-height: 1.5; font-weight: 400;
+  width: max-content; max-width: 280px; white-space: normal;
+  border-radius: 2px;
+  opacity: 0; pointer-events: none; transition: opacity 0.15s ease;
+  z-index: 100; text-transform: none; letter-spacing: normal;
+}
+.tip::before {
+  content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: var(--yellow);
+  opacity: 0; pointer-events: none; transition: opacity 0.15s ease;
+}
+.tip:hover::after, .tip:hover::before { opacity: 1; }
+
+/* ENGINE TWO-COL LAYOUT */
+.engine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 1300px; }
+.engine-cell-wrap { background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%); border: 1px solid var(--border); border-top: 3px solid var(--yellow); padding: 24px 28px; }
+.engine-cell-title { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.engine-cell-title .icon { stroke: var(--yellow); width: 20px; height: 20px; }
+
+/* Engine logic */
+.logic-flow { display: flex; flex-direction: column; gap: 12px; }
+.logic-step { display: flex; gap: 14px; align-items: flex-start; padding: 12px 14px; background: rgba(255,255,255,0.02); border-left: 2px solid var(--yellow); }
+.logic-num { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 800; color: var(--yellow); line-height: 1; min-width: 24px; }
+.logic-body { flex: 1; }
+.logic-head { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.logic-sub { font-size: 12px; color: var(--text-2); line-height: 1.55; }
+.logic-sub strong { color: var(--yellow); }
+.logic-stat { display: inline-block; padding: 1px 6px; background: var(--yellow); color: #000; font-weight: 700; border-radius: 2px; font-size: 11px; }
+
+/* Chart container */
+.chart-wrap { position: relative; height: 360px; margin-top: 8px; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 14px; font-size: 11px; color: var(--text-2); }
+.chart-legend-item { display: flex; align-items: center; gap: 6px; }
+.chart-legend-swatch { width: 12px; height: 12px; border-radius: 2px; }
+.chart-callout { font-size: 11px; color: var(--text-3); margin-top: 6px; font-style: italic; }
+
+/* COUNTER */
+.counter-stat {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 56px; font-weight: 800; color: var(--yellow); line-height: 1;
+}
+.counter-stat-suffix { font-size: 28px; opacity: 0.7; margin-left: 2px; }
+
+/* RELATIONSHIP MAP */
+.map { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; max-width: 1300px; }
+.map-col { background: var(--bg-1); border: 1px solid var(--border); border-top: 3px solid var(--yellow); }
+.map-col-header { padding: 14px 18px; border-bottom: 1px solid var(--border); background: var(--bg-2); display: flex; align-items: center; gap: 12px; }
+.map-col-header .icon { stroke: var(--yellow); width: 22px; height: 22px; }
+.map-col-tag { font-size: 9px; letter-spacing: 0.2em; color: var(--yellow); font-weight: 700; text-transform: uppercase; }
+.map-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; margin-top: 4px; line-height: 1.1; }
+.map-block { padding: 14px 18px; border-bottom: 1px solid var(--border); }
+.map-block:last-child { border-bottom: none; }
+.map-block-label { font-size: 10px; letter-spacing: 0.15em; color: var(--text-3); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.map-block-items { font-size: 13px; line-height: 1.7; color: var(--text-2); }
+.map-block-items strong { color: var(--text); font-weight: 600; }
+.map-block-items .item { display: block; }
+.map-block-items .num { color: var(--yellow); font-weight: 700; display: inline-block; min-width: 18px; }
+
+/* DISTRIBUTION OUTPUTS */
+.outputs { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 1300px; }
+.output { background: var(--bg-1); border: 1px solid var(--border); padding: 18px 20px; text-align: center; }
+.output-icon { color: var(--yellow); margin-bottom: 8px; }
+.output-icon .icon { width: 28px; height: 28px; }
+.output-tag { font-size: 9px; letter-spacing: 0.2em; color: var(--yellow); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.output-name { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; }
+.output-desc { font-size: 12px; color: var(--text-3); margin-top: 6px; line-height: 1.45; }
+.output-metric { font-size: 11px; color: var(--yellow); margin-top: 8px; letter-spacing: 0.05em; font-weight: 600; }
+
+.flow-arrow { text-align: center; font-size: 24px; color: var(--yellow); margin: 20px 0; font-weight: 300; }
+
+/* GANTT */
+.gantt-wrap { background: var(--bg-1); border: 1px solid var(--border); padding: 24px; margin-top: 12px; max-width: 1400px; margin-left: auto; margin-right: auto; }
+.gantt-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
+.gantt-controls .gantt-title { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text); display: flex; align-items: center; gap: 10px; }
+.gantt-controls .gantt-title .icon { stroke: var(--yellow); width: 22px; height: 22px; }
+.gantt-controls .gantt-hint { font-size: 11px; color: var(--text-3); letter-spacing: 0.05em; }
+.gantt-controls .gantt-hint .key { color: var(--yellow); font-weight: 600; text-transform: uppercase; }
+
+.gantt-axis { display: grid; grid-template-columns: 220px 1fr; margin-bottom: 12px; }
+.gantt-axis-label { font-size: 10px; color: var(--text-3); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; }
+.gantt-axis-ticks { display: grid; position: relative; height: 22px; }
+.gantt-axis-tick { border-left: 1px dashed var(--border-2); padding-left: 8px; font-size: 10px; color: var(--text-3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+.gantt-axis-tick:first-child { border-left: 1px solid var(--border-2); }
+
+.gantt-row { display: grid; grid-template-columns: 220px 1fr; margin-bottom: 10px; opacity: 0; transform: translateX(-10px); animation: slideIn 0.5s ease-out forwards; }
+.gantt-row:nth-child(2) { animation-delay: 0.1s; }
+.gantt-row:nth-child(4) { animation-delay: 0.2s; }
+.gantt-row:nth-child(6) { animation-delay: 0.3s; }
+.gantt-row:nth-child(8) { animation-delay: 0.4s; }
+.gantt-row:nth-child(10) { animation-delay: 0.5s; }
+
+@keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+
+.gantt-label { display: flex; align-items: center; gap: 10px; padding-right: 16px; }
+.gantt-label .icon { stroke: var(--yellow); width: 18px; height: 18px; flex-shrink: 0; }
+.gantt-num { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 800; color: var(--yellow); line-height: 1; min-width: 22px; }
+.gantt-name { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text); line-height: 1.15; }
+.gantt-track { position: relative; height: 38px; background: rgba(255, 255, 255, 0.02); border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
+.gantt-bar { position: absolute; top: 4px; bottom: 4px; background: var(--yellow); border-radius: 2px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; padding: 0 12px; font-size: 11px; font-weight: 600; color: #000; letter-spacing: 0.04em; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; box-shadow: 0 1px 0 rgba(255, 224, 0, 0.25); }
+.gantt-bar:hover { filter: brightness(1.1); box-shadow: 0 0 0 1px var(--yellow), 0 0 16px var(--yellow-glow); transform: translateY(-1px); }
+.gantt-bar.muted { background: var(--bg-3); border: 1px solid var(--border-2); color: var(--text-2); box-shadow: none; }
+.gantt-bar.muted:hover { border-color: var(--yellow); color: var(--yellow); background: var(--yellow-faint); }
+.gantt-bar .duration { font-size: 10px; opacity: 0.75; margin-left: auto; padding-left: 10px; }
+
+.gantt-detail { grid-column: 1 / -1; background: var(--bg-2); border: 1px solid var(--border); border-top: 2px solid var(--yellow); margin-top: 8px; margin-bottom: 12px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; padding: 0 24px; }
+.gantt-detail.open { max-height: 600px; padding: 18px 24px 20px; }
+.gantt-detail-tag { font-size: 9px; letter-spacing: 0.2em; color: var(--yellow); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.gantt-detail-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.gantt-detail-step { border-left: 2px solid var(--yellow); padding-left: 14px; }
+.gantt-detail-step-num { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: var(--yellow); font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+.gantt-detail-step-title { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.02em; }
+.gantt-detail-step-body { font-size: 12px; color: var(--text-2); line-height: 1.55; margin-bottom: 8px; }
+.gantt-detail-step-body strong { color: var(--yellow); font-weight: 600; }
+.gantt-detail-step-tool { font-size: 10px; color: var(--text-3); letter-spacing: 0.05em; padding-top: 6px; border-top: 1px dashed var(--border); display: flex; align-items: center; gap: 4px; }
+.gantt-detail-step-tool .icon { width: 12px; height: 12px; stroke: var(--text-3); }
+.gantt-detail-step-tool strong { color: var(--yellow); font-weight: 600; }
+
+/* SCENARIO PICKER */
+.scenario-wrap { background: var(--bg-1); border: 1px solid var(--border); border-top: 3px solid var(--yellow); padding: 28px; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.scenario-step { display: none; }
+.scenario-step.active { display: block; animation: fadeIn 0.4s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.scenario-question { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 8px; color: var(--text); }
+.scenario-subtitle { font-size: 13px; color: var(--text-3); margin-bottom: 24px; line-height: 1.55; }
+.scenario-progress { display: flex; gap: 6px; margin-bottom: 28px; }
+.scenario-progress-pip { flex: 1; height: 4px; background: var(--bg-3); border-radius: 2px; transition: background 0.3s; }
+.scenario-progress-pip.done { background: var(--yellow); }
+.scenario-progress-pip.current { background: var(--yellow-dim); }
+
+.scenario-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.scenario-option { background: var(--bg-2); border: 1px solid var(--border); padding: 18px 20px; cursor: pointer; transition: all 0.2s; text-align: left; font-family: inherit; color: var(--text); }
+.scenario-option:hover { border-color: var(--yellow); background: var(--yellow-faint); transform: translateY(-1px); }
+.scenario-option-icon { color: var(--yellow); margin-bottom: 10px; }
+.scenario-option-icon .icon { width: 24px; height: 24px; }
+.scenario-option-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 6px; }
+.scenario-option-desc { font-size: 12px; color: var(--text-3); line-height: 1.5; }
+
+.scenario-back { background: transparent; border: none; color: var(--text-3); font-family: inherit; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; cursor: pointer; padding: 0; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 6px; }
+.scenario-back:hover { color: var(--yellow); }
+
+/* SCENARIO RESULT */
+.scenario-result { display: none; }
+.scenario-result.active { display: block; animation: fadeIn 0.4s ease-out; }
+.result-header { background: var(--yellow); color: #000; padding: 20px 24px; margin: -28px -28px 24px; }
+.result-tag { font-size: 10px; letter-spacing: 0.22em; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+.result-title { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; text-transform: uppercase; line-height: 1.1; }
+.result-subtitle { font-size: 13px; margin-top: 6px; opacity: 0.8; }
+.result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 24px; }
+.result-card { background: var(--bg-2); border: 1px solid var(--border); padding: 14px 16px; }
+.result-card-label { font-size: 9px; letter-spacing: 0.2em; color: var(--yellow); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.result-card-value { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: var(--text); line-height: 1.2; }
+.result-card-sub { font-size: 11px; color: var(--text-3); margin-top: 4px; line-height: 1.4; }
+.result-section { background: var(--bg-2); border-left: 2px solid var(--yellow); padding: 16px 20px; margin-bottom: 14px; }
+.result-section-title { font-size: 11px; letter-spacing: 0.15em; color: var(--yellow); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.result-section-body { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+.result-section-body strong { color: var(--text); font-weight: 600; }
+.result-section-body ul { list-style: none; padding: 0; }
+.result-section-body li { padding: 4px 0 4px 18px; position: relative; }
+.result-section-body li::before { content: '›'; color: var(--yellow); position: absolute; left: 4px; font-weight: 700; }
+.result-restart { margin-top: 20px; }
+
+/* NOTE */
+.note { border-left: 3px solid var(--yellow); background: rgba(255, 224, 0, 0.04); padding: 14px 18px; margin-top: 24px; max-width: 1300px; font-size: 13px; color: var(--text-2); line-height: 1.6; display: flex; gap: 12px; align-items: flex-start; }
+.note .icon { stroke: var(--yellow); width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+.note strong { color: var(--text); font-weight: 600; }
+
+.footer { padding: 32px; font-size: 12px; color: var(--text-3); line-height: 1.6; border-top: 1px solid var(--border); }
+.footer strong { color: var(--text); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .map { grid-template-columns: 1fr; }
+  .outputs { grid-template-columns: 1fr; }
+  .engine-grid { grid-template-columns: 1fr; }
+  .gantt-row { grid-template-columns: 1fr; }
+  .gantt-label { padding: 0 0 8px 0; }
+  .gantt-axis { grid-template-columns: 1fr; }
+  .nav { padding: 0 16px; }
+}
+
+/* PRINT */
+@media print {
+  body { background: #fff !important; color: #000 !important; font-size: 10pt; }
+  .nav-wrap, .header-stripe, .scenario-wrap { display: none !important; }
+  .section { padding: 16px 0; page-break-inside: avoid; border-bottom: 1px solid #ccc; }
+  .section-title, .section-label { color: #000 !important; }
+  .section-label { color: #888 !important; }
+  .section-intro, .map-block-items, .gantt-detail-step-body { color: #333 !important; }
+  .map-col, .gantt-wrap, .output, .engine-cell-wrap { background: #fff !important; border-color: #ccc !important; }
+  .map-col-header, .nav, .gantt-detail { background: #f5f5f5 !important; }
+  .gantt-bar { color: #000 !important; }
+  .gantt-detail { max-height: none !important; padding: 16px !important; page-break-inside: avoid; }
+  .gantt-bar.muted { background: #f0f0f0 !important; }
+  .map-col-title, .gantt-name, .gantt-title, .output-name, .engine-cell-title { color: #000 !important; }
+  .map-block-items strong, .gantt-detail-step-body strong { color: #000 !important; }
+  .header { padding: 12px 0; }
+  .header h1 { color: #000 !important; font-size: 28pt; }
+  .header-brand { color: #888 !important; }
+  .note { background: #fffce0 !important; color: #333 !important; }
+  .chart-wrap { height: 280px !important; }
+  .map-col, .map-col-header, .gantt-wrap { border-top-color: #FFE000 !important; }
+  .footer { border-color: #ccc !important; color: #888 !important; }
+  .footer strong { color: #000 !important; }
+  .tip { border-bottom: none; color: inherit !important; }
+  .tip::after, .tip::before { display: none !important; }
+  @page { size: A4 landscape; margin: 12mm; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div>
+    <div class="header-brand">JD SPORTS CANADA  |  INTERNAL</div>
+    <h1>UGC Programme Overview</h1>
+    <div class="header-meta">For marketing team alignment  |  June 2026</div>
+  </div>
+  <div class="header-logo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAREBEQDACIAAREBAhEB/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMAAAERAhEAPwD5/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK9B8M/BzxP4s0G31nTmsFtZywQTzMrfKxU8bT3Brz6vtT4ZWR0/wCGnh+3YMG+xpIQ3UF/n/8AZqAPAv8Ahnnxr/z10r/wIb/4ij/hnnxr/wA9dK/8CG/+Ir6oooA+V/8Ahnnxr/z10r/wIb/4ij/hnnxr/wA9dK/8CG/+Ir6oooA+V/8Ahnnxr/z10r/wIb/4ij/hnnxr/wA9dK/8CG/+Ir6oooA+V/8Ahnnxr/z10r/wIb/4ij/hnnxr/wA9dK/8CG/+Ir6oooA+V/8Ahnnxr/z10r/wIb/4ij/hnnxr/wA9dK/8CG/+Ir6ooNAHwt4l8PXvhXX7nRtQaI3Vvt3mFiy/MoYYJA7EVk10vxCvxqXxD1+6XG1r2RVIBGQp2jr7CuaoAnsrO41G+gsrSJpbm4kWKKNerMxwB+ddn/wpv4gf9C5L/wCBEX/xdN+EGnf2l8UtDjK7lhlNw3y5A2KWH6gV9j0AfHX/AApv4gf9C5L/AOBEX/xdH/Cm/iB/0Lkv/gRF/wDF19i0UAfHX/Cm/iB/0Lkv/gRF/wDF0f8ACm/iB/0Lkv8A4ERf/F19i0UAfHX/AApv4gf9C5L/AOBEX/xdH/Cm/iB/0Lkv/gRF/wDF19i0UAfHX/Cm/iB/0Lkv/gRF/wDF0f8ACm/iB/0Lkv8A4ERf/F19i0UAfHX/AApv4gf9C5L/AOBEX/xdH/Cm/iB/0Lkv/gRF/wDF19i0UAfHX/Cm/iB/0Lkv/gRF/wDF0f8ACm/iB/0Lkv8A4ERf/F19i0UAfHX/AApv4gf9C5L/AOBEX/xdH/Cm/iB/0Lkv/gRF/wDF19i0UAfHX/Cm/iB/0Lkv/gRF/wDF0f8ACm/iB/0Lkv8A4ERf/F19i0UAfFNz8NvGtortL4Z1LCHBKQF++ONuc/hWFeaTqWnMVvtPurYg7SJoWTB9ORX3nTJIo5kZJUV0YYKsMgj6UAfAeKK+2tV+H3hHWsm/8PWDsTkukQjY/wDAlwe1cBrX7Ovhy8LPpN/eac5HCMRNGPwOG/WgD5kor07xB8CfGOjbpLSCHVYBzutH+fH+42Dn6Zrze6tLmxuHt7u3lgnQ4aOVCrKfcGgCGiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAkgie4njhjBZ5GCKAMkknAr7y0+1Wx061tEChYIkiAUYGFAHA7dK+Lvh9p39q/EHQLQruVr2NmGCcqp3Hp7A19tUAFFFFABRRRQAUUUUAFFFFABUF9dJY2FzdyEBIImlYk4GFBJ/lU9cl8TtRGl/DXX7guUJtGiUhsHc/yD9WoA+Mrmd7q6muJCS8rs7EnJJJyeaioPWigD2H9nTTvtHji+vmXK2lkQDt6M7ADntwG/Wvp6vDf2bNO8vRdc1IrzNcRwKcHoikn2/jr3KgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKyNd8L6H4lt/I1jTLa8XGA0ifMv0Ycj8DWvRQB4B4u/Z1AR7nwpfHcOfsd43X2Vx/Ij8a8Q1nQdV8PXzWer2E9nOP4ZVxu9wehHuK+7qzdc8P6T4k09rHV7GG7tzyFkXJU+qnqp9xQB8JUV7R48+At/pCS6h4YeXULNfma0YZnjH+zj74/X614y6NG7I6lWU4YEYIPpQA2iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAPUfgFpv274mRXDKStlayzZwcAkBB/6Gfyr6ur5/wD2atMP/E+1RlH/ACyt0OPqzc/9819AUAFFFFABRRRQAUUUUAFFFFABXk/7Qmo/ZPhylqGw15eRxkbsZVQXPHcZUfpXrFfPn7SupE3Gg6WrDCpLcOM+pCrx+DfrQB4HRRRQB9b/AAL0/wCw/C2wkK4a7lluD15y20dfZRXpFc/4FsP7M8B6FZnrHYxbuc/MVBP6k10FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABXnfxC+Emj+NYpLu3VLDWcZW6RfllPpIB1+vUe/SvRKKAPhfxJ4Z1bwnq0mm6vatBOvKnqsi9mU9CKyK+4vFfhHSPGWjtp2r2/mIDuilU4eFsY3Kf6dD3r5L8e/D7VvAWqCC9AntJiTb3cYOyQeh9GHcflmgDkaKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD6y+A2mf2f8Mbedlw19cS3Bz1xnYP0T9a9NrF8IaX/Yng/R9MwA1taRo2O7bRuP55raoAKKKKACiiigAooooAKKKKACvk3486l9v+J9zAGJWyt4oMZPBxvP/odfWVfDvjTUhq/jbW9QXGye9lZP93cQP0AoAwquaTZnUdZsbEdbm4jhHOPvMB1/Gqddr8I7D+0filoUWCRHOZzggfcUv/MCgD7IRBGiovRQAKdRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFZmv6BpvibRp9K1S3We2mHIPBU9mU9iOxrTooA+MfiD8PdS8Baz9nnBnsJiTa3YHEg9D6MO4/EVx1fdXiPw7p/inQrnSNSiD2864yAN0bdmUnoRXxx418Hah4J8QzaXfIWTJa3uNuFnj7MP6jsaAOcooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArf8EaX/bPjjRNPK7lmvIw4/wBkNlv0BrAr1n9nvSvtvxCkvnXKWFo7g+jsQg/QtQB9TUUUUAFFFFABRRRQAUUUUAFFFFAGR4p1MaN4U1bUs4NtaSyL/vBTj9cV8MEknJ619afHbVv7N+GN3CrAPfTR2w55xnef0Q/nXyVQAV7B+zrp32nx3eXpHy2ti2Dx95mUD9N1eP19Ffs1afs0nXdSK/62eOBW4/hUsff+MUAe60UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVyPxE8DWnjvw3JYyBI76IF7O4I5jf0J67T0P/1q66igD4K1HT7rSdRuLC+heG6t3MckbjBUiqtfR/x88AC+0/8A4S3Tov8ASbVQt6q/xxdn+q9/b6V84UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAV9L/s5aObbwpqWrOuGvbkRofVIx/izflXzRX2t8ONH/sL4eaJYlQsgtVlkH+2/zt+rY/CgDqaKKKACiiigAooooAKKKKACiiigD5//AGlNV50LSFJ/5aXTjPHZV/8AZq8Ar0b45ar/AGn8UL+MElLKOO2XJ9BuP6sa85oAK+tPgRp/2H4XWcpXDXc0s54HI3bR+iivksV9veA9P/svwDoNmV2tHYxbht24YqCcj1yTQB0NFFFABRRRQAUUUUAFFFFABRRXI/FDVpNF+G2uXsMzQzCDy45EJDKzkICCOQfm60AdbkDqQKqHVtNBIOoWgI4I85f8a+FbjUL26YNcXlxMyjAMkrMQPxNVutAH3M/i7w1FI0cniHSUdThla9jBB9CN1WINf0a6j8y31ewmjzjdHcowz9Qa+EaKAPvmG7trlS0FxFKoOCUcMAfwqavgJZHQYV2UexxWvZ+LvEmntutNe1KE5Bwl04Bx0yM80Afc1FfIel/G3x1puA2rLeIP4buFXz17jDd/Wu90b9pPJVNc0HA/ilspen/AG/8AiqAPf6K5Dw78TvCPiZkisdYhS5fgW9x+6kz6AN1/DNdfnNABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFADJoo54ZIZUV45FKurDIYEYINfGPxJ8Hv4L8ZXenKjfYnPnWjt/FEegz3IOVP0r7Rry347eEzr/ghtSgUG70kmccctER84/DAb/gNAHylRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAbfhDRj4g8YaTpWCVubpEfH9zOWP/fINfcaqFUKowAMAV8wfs86EL/xvc6rIgMenWx2kjpI/yj/x3fX1BQAUUUUAFFFFABRRRQAUUUUAFMllSCF5ZG2oilmJ7Acmn1xvxV1j+xPhrrVyG2ySQG3j9d0h2cfgSfwoA+Qdc1F9X17UNSkOXu7iSYn/AHmJ/rVCiigC3pdm2o6tZ2SAlridIgAM/eYDp+NfeMUaQwpEgwiKFUDsBXxr8KNP/tP4oaDCV3Klx57cHjywX7e6ivs2gAooooAKKKKACiiigAooooAK8l/aG1AWvw8htc/Nd3sa43YyFDMeO/IH5161Xz3+0rqObjQNMVvurLcOu71KqpI/BufrQB4JRRRQAUUUUAFFFFABRRRQAV3fhP4ueK/CbRxR3rX1iuB9kvCXUD0U9V/A49q4SigD7G8DfFTw/wCNwIIJDZ6ljJsrggM3qUPRh+vtXc18BxSyQSpLE7JIhDK6nBUjoQexr6B+FnxuM7waF4sn/eMRHb6i5AB7BZff/a/P1oA97ooBzRQAUUUUAFFFFABRRRQAUUUUAFRzwx3FvJDMgeKRSjqehBGCKkooA+GvF2hP4a8W6po7BttrcMkZbqU6ofxUg1i17b+0b4f+y+INO16JD5d5EYJiOnmJ0/NT/wCO14lQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUVPZ2s19ewWluu6aeRYo19WY4A/M0AfUP7P2iHTfh+2oSIVl1K4aUZGPkX5V/UMfxr1es/QtKi0PQNP0qHmOzt0hB9doAz+PWtCgAooooAKKKKACiiigAooooAK8O/aQ1jydC0fRlbBuZ2uHA/uoMD9X/Svca+TfjxrI1X4lT28b7o9PhS2GP733m/VsfhQB5lRRRQB67+zvp/2nx/c3hGVtLFyDzwzMqj9N1fUVeEfs1aft07XtRI5kligU5P8ILH2/iFe70AFFFFABRRRQAUUUUAFFFFABXyj8ftR+2/EyW3DZWztYocbs4JBc/T79fV1fE3xE1H+1fiJr93u3K17IinIOVQ7B09lFAHM0UUUAFFFFABRRRQAUUUUAFFFFABRRRQB9E/A74nveiLwlrU26dVxYXDsSXA/wCWR9wOh9Bj0r3avgW2uJrS5iuLeVoponDxyIcFWByCD65r7N+HHjGPxt4QtdS3L9sT9zeIBjbKAMnHoeCPrQB1tFFFABRRRQAUUUUAFFFFABRRRQB538bdF/tj4ZX7ooMtiy3acdlOG/8AHWb8q+RK+89WsY9U0e90+UZjuoHhb6MpH9a+EJ4Xt7iSGQYeNijD3BwaAI6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK9G+CPh8658SbOZ1Jg05TduccZXhP/AB4g/hXnNfTf7O3h/wCweErzWpUIl1GbbGSP+WceR+rFvyoA9kooooAKKKKACiiigAooooAKKKKAIrq4jtLSa5mbbFCjSOfRQMn+VfCes6lLrOt32pzf627uHmb2LMTj9a+svjNrn9ifDPUtrhZr3FpHzgnf97H/AAENXx/QAUUUCgD6y+Ath9j+F9rNgZu7iWc8/wC1s/8AZK9NrnPh/YnTfh9oFqQQy2MRYZzyyhj+pNdHQAUUUUAFFFFABRRRQAUUUUAV7+6Wx065u3+5BE0rc44UE/0r4MuJnuLmWeQ5eRy7H1JOTX2b8UdQ/sz4ZeILgHDNatCMY6uQnf8A3q+Lj1oAKKKKACiiigAooooAKKKKACiiigAooooAK9b+AHic6R40fR5pAttqse0Z7Srkr+Y3D8RXklW9K1CXSdXs9Rg/1trOkyc45Ug/0oA+9KKgsrqO+sbe7hOYp41lQ+oYZH86noAKKKKACiiigAooooAKKKKACvij4j6f/ZnxH8QW2MD7bJIOc8Od4/Rq+16+S/jxafZvineSYQC4ghlG0f7O3n3ypoA80ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigCaztZb69gtIFLzTyLFGo7sxwB+Zr7n8P6PB4f8PWGkWw/dWkCxA+pA5P4nJ/GvmT4DeHP7a8fpfyoDbaVGbg5GQZD8qD88t/wGvq2gAooooAKKKKACiiigAooooAKKKKAPnb9pHXRJqGkaDG/EKNdTKDxub5Uz7gBv8AvqvCa6r4ka83iP4gaxf790XnmGH08tPlXH1xn8a5WgAqzp1o2oanaWSAl7iZIlAOOWYDv9arV2Pwr07+0/idoEBXcEuRMw46Rgv3/wB2gD7LhiWCCOFBhI1Cr9AMU+iigAooooAKKKKACiiigAooooA8m/aF1D7L8Oo7UE5vL2NDwOihn/mor5Zr3v8AaWv83OgacP4Ulnbj1KqOfwNeCUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH2b8KL86j8L9AmYkslv5Jzj+Binb2UV2VeXfACdJvhhEi5zDdzI2fXIbj8GFeo0AFFFFABRRRQAUUUUAFFFFABXzB+0bDHH4+sZFXDyachc564kcD9K+n6+bv2lIY18SaJOF/ePaOjHPUB8j/wBCNAHiNFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUVv+CvDkvivxfpujxq2yeYecw/hiHLn8gfxoA+lfgd4ZOgfD+G6niKXWpv8AaXz1CdIx/wB88/8AAq9LpkMUdvCkMSKkcahUVRgKAMACn0AFFFFABRRRQAUUUUAFFFFABXL/ABE8Qf8ACM+AtX1JW2zLAY4ecHzH+VfyJz+FdRXgX7SHiDbFpPh2JxlibycA9hlU/wDZ/wAqAPn09aKKKACvW/2eNP8AtXxCnuyuVs7J2BwDhmKqP0LV5JX0L+zVp22017U2X78kVurFfQFiAf8AgS/pQB71RRRQAUUUUAFFFFABRRRQAUUUHpQB8pfH6/8AtfxNlgzxaWkUPT1Bf/2evLa6j4j366l8R/EFyhBU3ropGeQh2jr/ALtcvQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAfUv7O/8AyTe4/wCwjL/6BHXrVeXfACBIfhhE6k5mu5nbPrkLx+CivUaACiiigAooooAKKKKACiiigAr5u/aUmRvEmiQA/vEtHdhjoC+B/wCgmvpGvmH9o2VH8e2CKwLR6cgYemZHP8qAPHqKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAr6I/Z08KiGyv/FFxGN8x+y2pI5Cjl2H1OB/wE14JpGl3Wt6vaaZZJvubqVYox7k9T7DrX3DoGj2/h/QbHSbVQIbSFYhgYyQOT9Scn8aANGiiigAooooAKKKKACiiigAooooAD0r4u+JviH/AISX4g6tfo+6BZfIgI6eWnygj64J/GvqL4neIx4X+H+qXynE7x/Z4Mf89H+UH8OT+FfF9ABRRRQAV9YfAPTvsXwxhnKYa8uZZs7cEgHYPr9yvk+vtr4eaeNM+HmgWoGCtlG7Dbj5mG48fVjQB0tFFFABRRRQAUUUUAFFFFABUF7cpZWNxdSEBIImkYnsFGT/ACqeuS+J2o/2X8NdfuA21jaNEpzjBf5B/wChUAfGV1O91dzXEhJeV2diTnknJ5qKiigAooooAKKKKACiiigAooooAKKKKACiiigAoopQMnAGSaAPsX4O2n2P4VaEhCZkjeUlR13OzDPvgiu5rM8OWH9l+GNK0/GDbWkUR5zyqAVp0AFFFFABRRRQAUUUUAFFFFABXyZ8ern7R8U7uPAxb28MYIPX5d3P/fVfWdfFvxOvRqHxL8QTqVKi8aMFeh2YT/2WgDkqKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiirukaXc63rFppdmm+5upVijHuT1PsOtAHtf7PHg7zbm68WXceUizbWeR/ER87j6A7fxNfQ9ZfhzQ7bw14esdHsxiG0iEYOPvHux9ycn8a1KACiiigAooooAKKKKACiiigAooqC9u4LCxuLy5cJBBG0sjn+FVGSfyFAHzx+0b4j+0axp3h2FxstY/tM4B/jfhQfooJ/4FXh1aviXW5vEfiXUNYuM+ZdztJg/wAK/wAK/gMD8KyqACiiigCxY2rXuoW1qn3p5VjH1Ygf1r7ytoUtraKCMYSJAij2AwK+M/hfYf2l8TPD9uRkC7WU8kcJl+3+7X2jQAUUUUAFFFFABRRRQAUUUUAFeUftB6j9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igAooooA+qP2fNP+yfDhrorg3l5JIDxyFwn81PWvV65P4Zad/Zfw10C3K7WNosrDA6v856f71dZQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABVXUdRs9JsJr6/uI7e1gUvJLIcBQP89KzPFXi/R/B2ktf6tdCNeRFEvMkzY+6o7/XoO9fKPxA+JGrePNQzOxt9Nicm3slPCdssf4m9+2eMUAbHxR+LN343m/s+wElrokbZEZPzXBB4Z/b0Xt79vM6KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiilHJoA+yfhJZix+Fugx4ILwGY5XH32Lf1rtazfD1l/ZvhrS7Hbt+z2kUWM5xtQDr+FaVABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABTJporeF5ppEjiQFnd2AVQOpJPQVh+K/Geh+DNP+16xdrGWB8qBPmllPoq9/r0Hc18v/ED4sa144le1BNlo4bKWkbcv7yN/EfboPTvQB3HxN+OTXIm0XwlMVhOUm1EcFxjBWP0H+119PU+EEliSSST3NJRQAUUUUAFFFFABRRRQAUUUUAFFFFABUttC9zdRQRgl5XCKFGSSTjgVFXTfDvTv7V+ImgWhXcrXsbsME5VTuP6KaAPtKztksrG3tYwAkMaxqAMDAGBx26VPRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUVh+JfF+heEbMXOtahFbBgfLj+9JJj+6o5P8qANyvL/iB8aNH8J+bYaYU1LV1+UojfuoT/ALbDqf8AZH44ryjx58cdY8SLLp+iq+l6Y/DMG/fyj0Zh90ew/M15QTk5oA09f8Rar4n1WTUtXvJLm4foWPCD+6o6KPYVl0UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUU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KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP//Z" alt="JD Sports">
+  </div>
+</div>
+<div class="header-stripe"></div>
+
+<!-- STICKY NAV -->
+<div class="nav-wrap">
+  <div class="nav">
+    <a class="nav-item active" href="#sec-engine" data-target="sec-engine">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Engine
+    </a>
+    <a class="nav-item" href="#sec-map" data-target="sec-map">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+      Map
+    </a>
+    <a class="nav-item" href="#sec-always" data-target="sec-always">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><polyline points="21 3 21 8 16 8"/></svg>
+      Always-on
+    </a>
+    <a class="nav-item" href="#sec-coop" data-target="sec-coop">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Co-op
+    </a>
+    <a class="nav-item" href="#sec-picker" data-target="sec-picker">
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M6 9v6a3 3 0 0 0 3 3h6"/><path d="M18 9v6"/></svg>
+      Scenario picker
+    </a>
+    <div class="nav-spacer"></div>
+    <div class="nav-actions">
+      <button class="btn btn-y" onclick="window.print()">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print / PDF
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ENGINE SECTION -->
+<div class="section" id="sec-engine">
+  <div class="section-label">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    01  |  THE ECONOMIC ENGINE
+  </div>
+  <div class="section-title">Why the programme works</div>
+  <div class="section-intro">
+    The programme produces licensed creator content that runs on three channels. The key economic move is using <span class="tip" data-tip="Meta Partnership Ads are paid ads delivered through a creator's own social handle, instead of through JD's brand handle. The creator gets credit for the post; JD funds the spend.">Partnership Ads</span>, where paid Meta media is delivered through the creator's own handle. That creative outperforms standard brand-handle creative on the same audience. The resulting <span class="tip" data-tip="Return on ad spend. Revenue generated for every dollar of media spend. Higher is better.">ROAS</span> uplift on existing media spend is the lever that funds the cost of producing the content. It does not happen instantly. There is a ramp.
+  </div>
+
+  <div class="engine-grid">
+
+    <!-- LEFT: the logic -->
+    <div class="engine-cell-wrap">
+      <div class="engine-cell-title">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+        The four-step logic
+      </div>
+      <div class="logic-flow">
+        <div class="logic-step">
+          <div class="logic-num">1</div>
+          <div class="logic-body">
+            <div class="logic-head">We pay creators to produce licensed content</div>
+            <div class="logic-sub">Cost in. Cash outflow in months 1-6.</div>
+          </div>
+        </div>
+        <div class="logic-step">
+          <div class="logic-num">2</div>
+          <div class="logic-body">
+            <div class="logic-head">That content runs in Partnership Ads through the creator handle</div>
+            <div class="logic-sub">It also runs on JD owned channels and on the creator's organic feed at no extra cost.</div>
+          </div>
+        </div>
+        <div class="logic-step">
+          <div class="logic-num">3</div>
+          <div class="logic-body">
+            <div class="logic-head">Partnership Ads beat brand-handle creative on the same audience</div>
+            <div class="logic-sub">Working assumption: <strong>~15% ROAS uplift</strong> on the portion of media that uses creator content. Pilot validates this.</div>
+          </div>
+        </div>
+        <div class="logic-step">
+          <div class="logic-num">4</div>
+          <div class="logic-body">
+            <div class="logic-head">The efficiency saving compounds and crosses programme cost</div>
+            <div class="logic-sub">Break-even point: <span class="logic-stat">Month 7</span> at the modelled spend ramp. From month 8 the programme is net positive.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: the chart -->
+    <div class="engine-cell-wrap">
+      <div class="engine-cell-title">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Modelled self-funding curve  |  12 months
+      </div>
+      <div class="chart-wrap">
+        <canvas id="roi-chart"></canvas>
+      </div>
+      <div class="chart-legend">
+        <div class="chart-legend-item"><div class="chart-legend-swatch" style="background:#3a3a3a;"></div>Monthly programme cost ($)</div>
+        <div class="chart-legend-item"><div class="chart-legend-swatch" style="background:#FFE000;"></div>Efficiency coverage of cost (%)</div>
+        <div class="chart-legend-item"><div class="chart-legend-swatch" style="background:transparent; border:1px dashed #fff;"></div>100% threshold = break-even</div>
+      </div>
+      <div class="chart-callout">Illustrative model based on a 15% Partnership Ads ROAS uplift assumption applied across a ramping share of total media spend. Pilot data will refine the curve.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div><strong>What this means for budget conversations.</strong> The programme is a net cost for the first six months. It needs to be funded from existing marketing budget through the ramp. Asking for net new budget assumes month-one breakeven, which the model does not support. Frame it as a redeployment of existing media spend toward more efficient creative.</div>
+  </div>
+</div>
+
+<!-- RELATIONSHIP MAP -->
+<div class="section" id="sec-map">
+  <div class="section-label">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+    02  |  HOW THE PIECES FIT TOGETHER
+  </div>
+  <div class="section-title">Programme relationship map</div>
+  <div class="section-intro">
+    The programme has three layers. People (who makes the content), Content (what they make and how we pay for it), and Operations (how we run the process). Everything flows into three distribution channels, prioritised by media efficiency. Hover underlined terms for definitions.
+  </div>
+
+  <div class="map">
+
+    <!-- COLUMN 1: PEOPLE -->
+    <div class="map-col">
+      <div class="map-col-header">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div>
+          <div class="map-col-tag">Layer 1</div>
+          <div class="map-col-title">People</div>
+        </div>
+      </div>
+
+      <div class="map-block">
+        <div class="map-block-label">3 Creator types  |  how we source</div>
+        <div class="map-block-items">
+          <span class="item"><span class="num">1.</span><strong>Micro-creators</strong>  |  apply via form</span>
+          <span class="item"><span class="num">2.</span><strong>Influencers</strong>  |  outreach or agency</span>
+          <span class="item"><span class="num">3.</span><strong>Employees</strong>  |  internal pool</span>
+        </div>
+      </div>
+
+      <div class="map-block">
+        <div class="map-block-label">5 Creator tiers  |  who we use them as</div>
+        <div class="map-block-items">
+          <span class="item"><span class="num">1.</span><strong><span class="tip" data-tip="Flagship creator in a 100K to 500K follower range. Anchors the programme with a consistent voice and a series-style relationship.">Anchor mid-tier</span></strong>  |  flagship</span>
+          <span class="item"><span class="num">2.</span><strong>Rotating micro</strong>  |  scale velocity</span>
+          <span class="item"><span class="num">3.</span><strong>Employee</strong>  |  authentic voice</span>
+          <span class="item"><span class="num">4.</span><strong>Customer</strong>  |  loyalty-sourced</span>
+          <span class="item"><span class="num">5.</span><strong>Gifting nano</strong>  |  earned reach</span>
+        </div>
+      </div>
+
+      <div class="map-block">
+        <div class="map-block-label">Vetting weights  |  how we select</div>
+        <div class="map-block-items">
+          <span class="item"><span class="num">40%</span>Content quality + product fit</span>
+          <span class="item"><span class="num">30%</span>Operational reliability</span>
+          <span class="item"><span class="num">20%</span>Audience relevance</span>
+          <span class="item"><span class="num">10%</span>Following size</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMN 2: CONTENT -->
+    <div class="map-col">
+      <div class="map-col-header">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div>
+          <div class="map-col-tag">Layer 2</div>
+          <div class="map-col-title">Content</div>
+        </div>
+      </div>
+
+      <div class="map-block">
+        <div class="map-block-label">4 Content lanes  |  what we make</div>
+        <div class="map-block-items">
+          <span class="item"><span class="num">1.</span><strong>New Drops</strong>  |  launch-tied content</span>
+          <span class="item"><span class="num">2.</span><strong>Styling</strong>  |  fit and outfit builds</span>
+          <span class="item"><span class="num">3.</span><strong>Performance</strong>  |  in-use, on-foot</span>
+          <span class="item"><span class="num">4.</span><strong>Culture</strong>  |  community and lifestyle</span>
+        </div>
+      </div>
+
+      <div class="map-block">
+        <div class="map-block-label">5 Deliverable tiers  |  what we license</div>
+        <div class="map-block-items">
+          <span class="item"><span class="num">1.</span><strong>Everything</strong>  |  full ownership</span>
+          <span class="item"><span class="num">2.</span><strong><span class="tip" data-tip="We get the unedited footage and stills with full usage rights. JD does its own edits.">Full Usage Raw</span></strong>  |  unedited</span>
+          <span class="item"><span class="num">3.</span><strong>Full Usage Finished</strong>  |  edited</span>
+          <span class="item"><span class="num">4.</span><strong>Organic Only</strong>  |  no paid use</span>
+          <span class="item"><span class="num">5.</span><strong>Creator Channel</strong>  |  posted by creator only</span>
+        </div>
+      </div>
+
+      <div class="map-block">
+        <div class="map-block-label">3 Remuneration models  |  how we pay</div>
+        <div class="map-block-items">
+          <span class="item"><span class="num">1.</span><strong>Gifting</strong>  |  product only</span>
+          <span class="item"><span class="num">2.</span><strong>Monthly retainer</strong>  |  ongoing</span>
+          <span class="item"><span class="num">3.</span><strong>Pay per package</strong>  |  per delivery</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMN 3: OPERATIONS -->
+    <div class="map-col">
+      <div class="map-col-header">
+        <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <div>
+          <div class="map-col-tag">Layer 3</div>
+          <div class="map-col-title">Operations</div>
+        </div>
+      </div>
+
+      <div class="map-block">
+        <div class="map-block-label">5 Operational nodes  |  the process spine</div>
+        <div class="map-block-items">
+          <span class="item"><span class="num">1.</span><strong>Onboarding</strong>  |  source, vet, contract</span>
+          <span class="item"><span class="num">2.</span><strong>Brief management</strong>  |  modular blocks</span>
+          <span class="item"><span class="num">3.</span><strong>Content review</strong>  |  approve, revise, reject</span>
+          <span class="item"><span class="num">4.</span><strong><span class="tip" data-tip="Logging every licensed asset with usage windows, expiry alerts, and disclosure language in the Rights Register.">Rights clearance</span></strong>  |  logged and time-boxed</span>
+          <span class="item"><span class="num">5.</span><strong>Attribution</strong>  |  48-hour read, Partnership vs standard</span>
+        </div>
+      </div>
+
+      <div class="map-block">
+        <div class="map-block-label">Default terms  |  what stays fixed</div>
+        <div class="map-block-items">
+          <span class="item"><strong>Usage rights</strong>  |  12 months included</span>
+          <span class="item"><strong>Exclusivity</strong>  |  45 days vs direct retail</span>
+          <span class="item"><strong>Compliance</strong>  |  Ad Standards Fall 2025</span>
+          <span class="item"><strong>Age policy</strong>  |  18+ default</span>
+          <span class="item"><strong>No AI</strong>  |  no synthetic or likeness</span>
+        </div>
+      </div>
+
+      <div class="map-block">
+        <div class="map-block-label">Tools  |  where things live</div>
+        <div class="map-block-items">
+          <span class="item"><strong>Workbook 12</strong>  |  PM and reporting (leadership)</span>
+          <span class="item"><strong>Workbook 13</strong>  |  creator ops (marketing exec)</span>
+          <span class="item"><strong>13 numbered docs</strong>  |  legal, briefs, SOPs</span>
+          <span class="item"><strong>Document Register</strong>  |  master index</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div style="max-width: 1300px; margin: 0 auto;">
+    <div class="map-col-tag" style="text-align: center; margin-bottom: 14px;">3 Distribution channels  |  prioritised by media efficiency</div>
+  </div>
+  <div class="outputs">
+    <div class="output">
+      <div class="output-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+      <div class="output-tag">First</div>
+      <div class="output-name">JD Owned</div>
+      <div class="output-desc">JD social, site, email, paid creative pool. Asset library entry.</div>
+      <div class="output-metric">Highest volume  |  lowest CPM</div>
+    </div>
+    <div class="output">
+      <div class="output-icon"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <div class="output-tag">Second</div>
+      <div class="output-name">Partnership Ads</div>
+      <div class="output-desc">Paid Meta ad through the creator handle. The efficiency engine.</div>
+      <div class="output-metric">Funds the programme via ROAS uplift</div>
+    </div>
+    <div class="output">
+      <div class="output-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+      <div class="output-tag">Third</div>
+      <div class="output-name">Creator Organic</div>
+      <div class="output-desc">Posted on the creator's own channels. Trust signal, not scale.</div>
+      <div class="output-metric">Lowest efficiency  |  highest authenticity</div>
+    </div>
+  </div>
+</div>
+
+<!-- WORKFLOW 1: ALWAYS-ON GANTT -->
+<div class="section" id="sec-always">
+  <div class="section-label">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><polyline points="21 3 21 8 16 8"/></svg>
+    03  |  EXECUTION WORKFLOW  |  ALWAYS-ON CREATOR
+  </div>
+  <div class="section-title">How a creator moves through the programme</div>
+  <div class="section-intro">
+    Standard creator lifecycle. The bars below show relative time investment per phase. <strong style="color:var(--text)">Click any bar to expand the steps in that phase.</strong> Yellow bars are active production work. Outlined bars are administrative or ongoing tasks running in parallel. Each step shows which tool or doc the marketing team uses to execute it.
+  </div>
+
+  <div class="gantt-wrap">
+    <div class="gantt-controls">
+      <div class="gantt-title">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><polyline points="21 3 21 8 16 8"/></svg>
+        Always-on creator lifecycle
+      </div>
+      <div class="gantt-hint"><span class="key">Click</span> any bar to expand</div>
+      <button class="btn" id="toggle-always">Expand all</button>
+    </div>
+
+    <div class="gantt-axis">
+      <div class="gantt-axis-label">Phase  |  Timeline</div>
+      <div class="gantt-axis-ticks" style="grid-template-columns: repeat(5, 1fr);">
+        <div class="gantt-axis-tick">Week 1</div>
+        <div class="gantt-axis-tick">Week 2</div>
+        <div class="gantt-axis-tick">Week 3</div>
+        <div class="gantt-axis-tick">Week 4</div>
+        <div class="gantt-axis-tick">Week 5+</div>
+      </div>
+    </div>
+
+    <!-- Phase 1: Onboarding -->
+    <div class="gantt-row" data-phase="a1">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div class="gantt-num">1</div>
+        <div class="gantt-name">Onboarding</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" data-target="a1-detail" style="left: 0%; width: 28%;">
+          Source, vet, contract<span class="duration">1 to 2 weeks</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="a1-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Phase 1 detail  |  Onboarding</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 1.1</div>
+          <div class="gantt-detail-step-title">Source</div>
+          <div class="gantt-detail-step-body">Creator enters via <strong>application form</strong>, <strong>outreach</strong>, or <strong>internal pool</strong>. Type tag is set at this point.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 13</strong>  |  CRM and Pipeline tabs</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 1.2</div>
+          <div class="gantt-detail-step-title">Vet</div>
+          <div class="gantt-detail-step-body">Score against the vetting scorecard. Content quality and product fit weighted highest. Following size weighted lowest.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_08 Vetting Scorecard</strong></div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 1.3</div>
+          <div class="gantt-detail-step-title">Contract</div>
+          <div class="gantt-detail-step-body">Issue agreement with <strong>12-month usage</strong>, <strong>45-day exclusivity</strong>, and Partnership Ads handle whitelisting.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_12 Creator Agreement</strong> + <strong>UGC_06 Onboarding Operational</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2: Brief -->
+    <div class="gantt-row" data-phase="a2">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <div class="gantt-num">2</div>
+        <div class="gantt-name">Brief management</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" data-target="a2-detail" style="left: 28%; width: 12%;">
+          Modular brief blocks<span class="duration">3 to 5 days</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="a2-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Phase 2 detail  |  Brief management</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 2.1</div>
+          <div class="gantt-detail-step-title">Assemble brief</div>
+          <div class="gantt-detail-step-body">Combine <strong>static brand block</strong> + <strong>quarterly messaging</strong> + <strong>per-SKU</strong> + <strong>creator-specific</strong> blocks. Minutes, not hours.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_13 Creator Brief Template</strong></div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 2.2</div>
+          <div class="gantt-detail-step-title">Pick content lane</div>
+          <div class="gantt-detail-step-body">New Drops, Styling, Performance, or Culture. Lane sets format expectations and content angle.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_02 Operating Manual</strong>  |  content lanes section</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 2.3</div>
+          <div class="gantt-detail-step-title">Set deliverable tier</div>
+          <div class="gantt-detail-step-body">Specify what we receive (Raw, Finished, both) and what we license (Everything down to Creator Channel).</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 13</strong>  |  Brief Pipeline tab</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3: Review -->
+    <div class="gantt-row" data-phase="a3">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <div class="gantt-num">3</div>
+        <div class="gantt-name">Content review</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" data-target="a3-detail" style="left: 40%; width: 12%;">
+          Approve, revise, or reject<span class="duration">3 to 5 days</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="a3-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Phase 3 detail  |  Content review</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 3.1</div>
+          <div class="gantt-detail-step-title">Decision within SLA</div>
+          <div class="gantt-detail-step-body">Every submission gets one of three outcomes within the SLA window: <strong>approve</strong>, <strong>revise</strong>, or <strong>reject</strong>. No fourth option.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_07 Review, Rights, Payment</strong></div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 3.2</div>
+          <div class="gantt-detail-step-title">Log first-pass quality</div>
+          <div class="gantt-detail-step-body">Was the first version usable? Y or N. This measures brief quality, not creator quality.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 13</strong>  |  Brief Pipeline tab</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 3.3</div>
+          <div class="gantt-detail-step-title">Final delivery</div>
+          <div class="gantt-detail-step-body">Raw and Finished files received per deliverable tier. Stored centrally with metadata.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 13</strong>  |  Asset Library tab</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4: Rights -->
+    <div class="gantt-row" data-phase="a4">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="gantt-num">4</div>
+        <div class="gantt-name">Rights clearance</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar muted" data-target="a4-detail" style="left: 52%; width: 5%;">
+          Log, time-box<span class="duration">1 to 2 days</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="a4-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Phase 4 detail  |  Rights clearance</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 4.1</div>
+          <div class="gantt-detail-step-title">Log the asset</div>
+          <div class="gantt-detail-step-body">Every asset entered in the Rights Register with usage window, exclusivity expiry, and creator linked.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_09 Rights Register</strong></div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 4.2</div>
+          <div class="gantt-detail-step-title">Set expiry alerts</div>
+          <div class="gantt-detail-step-body"><strong>12-month clock starts</strong>. Alert at 60 days before expiry to renew or retire.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_09 Rights Register</strong>  |  expiry column</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 4.3</div>
+          <div class="gantt-detail-step-title">Compliance check</div>
+          <div class="gantt-detail-step-body">Disclosure language verified for Canadian Ad Standards. Joint liability covered.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_05 Compliance Bundle</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 5: Distribute + attribute -->
+    <div class="gantt-row" data-phase="a5">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <div class="gantt-num">5</div>
+        <div class="gantt-name">Distribute and attribute</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" data-target="a5-detail" style="left: 57%; width: 43%;">
+          JD owned, Partnership Ads, creator organic, 48h read<span class="duration">2 to 3 weeks +</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="a5-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Phase 5 detail  |  Distribute and attribute</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 5.1</div>
+          <div class="gantt-detail-step-title">Distribute by efficiency</div>
+          <div class="gantt-detail-step-body"><strong>JD owned first</strong> (highest volume, lowest CPM). <strong>Partnership Ads second</strong> (revenue efficiency). <strong>Creator organic third</strong> (trust signal).</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 13</strong>  |  Asset Library + Distribution tabs</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 5.2</div>
+          <div class="gantt-detail-step-title">48-hour read</div>
+          <div class="gantt-detail-step-body">Partnership Ad version tested against a standard ad to the same audience. ROAS lift measured.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 12</strong>  |  Performance tab</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 5.3</div>
+          <div class="gantt-detail-step-title">Verdict</div>
+          <div class="gantt-detail-step-body"><strong>Scale</strong> (increase budget, re-brief), <strong>maintain</strong>, or <strong>pause</strong>. Result feeds the monthly report.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 12</strong>  |  Monthly Report tab</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div><strong>One asset, three placements, fully tracked.</strong> A single creator production funds itself through Partnership Ads efficiency over the programme ramp, populates the content library via JD owned channels, and produces an attribution signal that informs the next brief.</div>
+  </div>
+</div>
+
+<!-- WORKFLOW 2: CO-OP GANTT -->
+<div class="section" id="sec-coop">
+  <div class="section-label">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    04  |  EXECUTION WORKFLOW  |  CO-OP ACTIVATION
+  </div>
+  <div class="section-title">How a brand partner co-op runs</div>
+  <div class="section-intro">
+    Co-op activations are short, discrete campaigns (typically 4 weeks end to end) funded by a brand partner. They use the same programme infrastructure but with a tighter scope and shorter usage window. The Gantt below shows a typical 4-week timeline with deliberate phase overlap (Phase 2 starts before Phase 1 ends, for example) which reflects how the work actually runs in practice.
+  </div>
+
+  <div class="gantt-wrap">
+    <div class="gantt-controls">
+      <div class="gantt-title">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Co-op activation  |  4-week typical
+      </div>
+      <div class="gantt-hint"><span class="key">Click</span> any bar to expand</div>
+      <button class="btn" id="toggle-coop">Expand all</button>
+    </div>
+
+    <div class="gantt-axis">
+      <div class="gantt-axis-label">Phase  |  Timeline</div>
+      <div class="gantt-axis-ticks" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="gantt-axis-tick">Week 1</div>
+        <div class="gantt-axis-tick">Week 2</div>
+        <div class="gantt-axis-tick">Week 3</div>
+        <div class="gantt-axis-tick">Week 4</div>
+      </div>
+    </div>
+
+    <!-- Phase 1: Scope -->
+    <div class="gantt-row" data-phase="c1">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        <div class="gantt-num">1</div>
+        <div class="gantt-name">Scope</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" data-target="c1-detail" style="left: 0%; width: 18%;">
+          Budget, tier, gifted product<span class="duration">Days 1 to 4</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="c1-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Phase 1 detail  |  Scope</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 1.1</div>
+          <div class="gantt-detail-step-title">Confirm budget</div>
+          <div class="gantt-detail-step-body">Brand partner shares co-op budget. Pick tier from the spend ladder ($5K Entry through $50K Full).</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Co-op Spend Ladder</strong> spreadsheet</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 1.2</div>
+          <div class="gantt-detail-step-title">Lock the split</div>
+          <div class="gantt-detail-step-body">Apply the creator vs media split for that tier. <strong>60/40 at $5K</strong>, shifting to <strong>30/70 at $50K</strong>.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Co-op Spend Ladder</strong>  |  Sheet 1</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 1.3</div>
+          <div class="gantt-detail-step-title">Confirm gifted product</div>
+          <div class="gantt-detail-step-body">Brand partner provides product as in-kind. Sits outside the budget. Hard prerequisite for the model.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_07 Agency, Co-op, Gifting</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2: Select and brief -->
+    <div class="gantt-row" data-phase="c2">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M9 2h6a2 2 0 0 1 2 2v2H7V4a2 2 0 0 1 2-2z"/><rect x="5" y="6" width="14" height="16" rx="2"/></svg>
+        <div class="gantt-num">2</div>
+        <div class="gantt-name">Select and brief</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" data-target="c2-detail" style="left: 12%; width: 22%;">
+          Creators and brief<span class="duration">Days 3 to 9</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="c2-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><path d="M9 2h6a2 2 0 0 1 2 2v2H7V4a2 2 0 0 1 2-2z"/><rect x="5" y="6" width="14" height="16" rx="2"/></svg> Phase 2 detail  |  Select and brief</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 2.1</div>
+          <div class="gantt-detail-step-title">Pick creators</div>
+          <div class="gantt-detail-step-body">Match creators to brand aesthetic and content lane. 2 creators at Entry. 6 to 8 at Full activation.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 13</strong>  |  Creator Roster tab</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 2.2</div>
+          <div class="gantt-detail-step-title">Build brief</div>
+          <div class="gantt-detail-step-body">Use modular blocks. Add brand-specific guidance and SKU list. Brand partner reviews and approves.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_13 Creator Brief Template</strong></div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 2.3</div>
+          <div class="gantt-detail-step-title">Contract</div>
+          <div class="gantt-detail-step-body">Campaign-duration usage only at the baseline. Partnership Ads whitelisting confirmed before contract closes.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_12 Creator Agreement</strong>  |  co-op variant</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3: Produce -->
+    <div class="gantt-row" data-phase="c3">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <div class="gantt-num">3</div>
+        <div class="gantt-name">Produce</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" data-target="c3-detail" style="left: 32%; width: 28%;">
+          Production, review, rights<span class="duration">Days 8 to 15</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="c3-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Phase 3 detail  |  Produce</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 3.1</div>
+          <div class="gantt-detail-step-title">Content production</div>
+          <div class="gantt-detail-step-body">1 to 2 weeks for production. Creators deliver Raw and Finished assets per the deliverable tier set in the brief.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 13</strong>  |  Brief Pipeline tab</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 3.2</div>
+          <div class="gantt-detail-step-title">JD review</div>
+          <div class="gantt-detail-step-body">Approve, revise, or reject. Brand partner gets one round of feedback before final sign-off.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_07 Review, Rights, Payment</strong></div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 3.3</div>
+          <div class="gantt-detail-step-title">Rights logged</div>
+          <div class="gantt-detail-step-body">Assets logged in Rights Register with campaign-end expiry date. Compliance check completed.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_09 Rights Register</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4: Launch -->
+    <div class="gantt-row" data-phase="c4">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/></svg>
+        <div class="gantt-num">4</div>
+        <div class="gantt-name">Launch and amplify</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" data-target="c4-detail" style="left: 55%; width: 35%;">
+          JD owned, Partnership Ads, creator organic<span class="duration">Days 15 to 26</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="c4-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/></svg> Phase 4 detail  |  Launch and amplify</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 4.1</div>
+          <div class="gantt-detail-step-title">JD owned channels</div>
+          <div class="gantt-detail-step-body"><strong>First in the launch order</strong>. Assets used in JD social, site, and email touchpoints based on tier scope. Highest reach, lowest CPM.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 13</strong>  |  Distribution tab</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 4.2</div>
+          <div class="gantt-detail-step-title">Partnership Ads live</div>
+          <div class="gantt-detail-step-body">Paid Meta ads through creator handles. Tighter targeting at Entry. Full-funnel at higher tiers. <strong>Where the efficiency gain happens.</strong></div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Meta Ads Manager + <strong>Workbook 12</strong>  |  Performance tab</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 4.3</div>
+          <div class="gantt-detail-step-title">Creator organic posts</div>
+          <div class="gantt-detail-step-body">Creators post to their own channels on the agreed schedule. Trust signal, not reach driver.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 13</strong>  |  Distribution tab</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 5: Close and report -->
+    <div class="gantt-row" data-phase="c5">
+      <div class="gantt-label">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        <div class="gantt-num">5</div>
+        <div class="gantt-name">Close and report</div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar muted" data-target="c5-detail" style="left: 82%; width: 18%;">
+          Wrap, performance, hand back<span class="duration">Days 24 to 30</span>
+        </div>
+      </div>
+    </div>
+    <div class="gantt-detail" id="c5-detail">
+      <div class="gantt-detail-tag"><svg class="icon" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> Phase 5 detail  |  Close and report</div>
+      <div class="gantt-detail-steps">
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 5.1</div>
+          <div class="gantt-detail-step-title">Campaign wrap</div>
+          <div class="gantt-detail-step-body">Flight ends. Usage rights expire (unless extended via upsell). Assets archived in content library.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>UGC_09 Rights Register</strong>  |  Workbook 13 Asset Library</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 5.2</div>
+          <div class="gantt-detail-step-title">Performance read</div>
+          <div class="gantt-detail-step-body">ROAS, reach, engagement. Partnership Ads vs standard creative comparison where data allows.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 12</strong>  |  Performance tab</div>
+        </div>
+        <div class="gantt-detail-step">
+          <div class="gantt-detail-step-num">Step 5.3</div>
+          <div class="gantt-detail-step-title">Report to brand partner</div>
+          <div class="gantt-detail-step-body">Deliver a wrap report. Pitch repeat or scale-up using performance data as the case.</div>
+          <div class="gantt-detail-step-tool"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <strong>Workbook 12</strong>  |  Monthly Report tab (co-op variant)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div><strong>Key difference from always-on.</strong> Co-op campaigns use campaign-duration usage rights as the baseline (not the 12-month default). Brand partners can pay to extend rights if we offer it as an upsell. Open internal question on whether to formalise that pricing.</div>
+  </div>
+</div>
+
+<!-- SCENARIO PICKER -->
+<div class="section" id="sec-picker">
+  <div class="section-label">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M6 9v6a3 3 0 0 0 3 3h6"/><path d="M18 9v6"/></svg>
+    05  |  SCENARIO PICKER
+  </div>
+  <div class="section-title">Tell me about your scenario, I will tell you how to approach it</div>
+  <div class="section-intro">
+    Answer a few questions to get a tailored recommendation. Useful for new co-op conversations, sizing an always-on engagement, or testing how the programme handles edge cases like sub-$5K budgets or extended usage requests.
+  </div>
+
+  <div class="scenario-wrap">
+
+    <!-- PROGRESS -->
+    <div class="scenario-progress" id="picker-progress">
+      <div class="scenario-progress-pip current"></div>
+      <div class="scenario-progress-pip"></div>
+      <div class="scenario-progress-pip"></div>
+      <div class="scenario-progress-pip"></div>
+    </div>
+
+    <!-- STEP 1: Activation type -->
+    <div class="scenario-step active" data-step="1">
+      <div class="scenario-question">What kind of activation are you planning?</div>
+      <div class="scenario-subtitle">This sets the baseline programme structure. Always-on uses 12-month usage rights and ongoing creators. Co-op is short and brand-partner funded.</div>
+      <div class="scenario-options">
+        <button class="scenario-option" data-next="2a" data-answer="always-on">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><polyline points="21 3 21 8 16 8"/></svg></div>
+          <div class="scenario-option-title">Always-on creator</div>
+          <div class="scenario-option-desc">Ongoing engagement. JD-funded. 12-month usage. Builds the content library.</div>
+        </button>
+        <button class="scenario-option" data-next="2b" data-answer="coop">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="scenario-option-title">Co-op activation</div>
+          <div class="scenario-option-desc">Short discrete campaign, 2 to 4 weeks. Brand partner funded. Campaign-duration usage.</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2A: Always-on - creator role -->
+    <div class="scenario-step" data-step="2a">
+      <button class="scenario-back" onclick="pickerGoBack(1)">‹ Back</button>
+      <div class="scenario-question">What role will this creator play?</div>
+      <div class="scenario-subtitle">This sets the creator tier within the programme and shapes the contract.</div>
+      <div class="scenario-options">
+        <button class="scenario-option" data-next="3a" data-answer="anchor">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="scenario-option-title">Anchor mid-tier</div>
+          <div class="scenario-option-desc">Flagship voice, 100K to 500K followers, retainer relationship</div>
+        </button>
+        <button class="scenario-option" data-next="3a" data-answer="rotating-micro">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"/><path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"/></svg></div>
+          <div class="scenario-option-title">Rotating micro</div>
+          <div class="scenario-option-desc">Volume play, multiple micro-creators, pay-per-package</div>
+        </button>
+        <button class="scenario-option" data-next="3a" data-answer="employee">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="scenario-option-title">Employee</div>
+          <div class="scenario-option-desc">Internal pool. Authentic in-store and on-foot voice.</div>
+        </button>
+        <button class="scenario-option" data-next="3a" data-answer="customer">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <div class="scenario-option-title">Customer</div>
+          <div class="scenario-option-desc">Loyalty-sourced advocate. JD-specific advantage.</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3A: Always-on - deliverable scope -->
+    <div class="scenario-step" data-step="3a">
+      <button class="scenario-back" onclick="pickerGoBack('2a')">‹ Back</button>
+      <div class="scenario-question">What deliverable scope do you need?</div>
+      <div class="scenario-subtitle">This determines what we receive from the creator and what JD can use it for.</div>
+      <div class="scenario-options">
+        <button class="scenario-option" data-next="result-always" data-answer="everything">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+          <div class="scenario-option-title">Everything</div>
+          <div class="scenario-option-desc">Full ownership. Maximum flexibility. Highest cost.</div>
+        </button>
+        <button class="scenario-option" data-next="result-always" data-answer="full-finished">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+          <div class="scenario-option-title">Full Usage Finished</div>
+          <div class="scenario-option-desc">Edited file with full usage rights. Most common default.</div>
+        </button>
+        <button class="scenario-option" data-next="result-always" data-answer="full-raw">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="scenario-option-title">Full Usage Raw</div>
+          <div class="scenario-option-desc">Raw footage. JD edits in-house. Lower creator cost.</div>
+        </button>
+        <button class="scenario-option" data-next="result-always" data-answer="organic-only">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="scenario-option-title">Organic Only</div>
+          <div class="scenario-option-desc">No paid use. Creator and JD organic channels only.</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2B: Co-op - budget -->
+    <div class="scenario-step" data-step="2b">
+      <button class="scenario-back" onclick="pickerGoBack(1)">‹ Back</button>
+      <div class="scenario-question">What budget is the brand partner offering?</div>
+      <div class="scenario-subtitle">Total co-op budget in CAD. This sets the spend ladder tier.</div>
+      <div class="scenario-options">
+        <button class="scenario-option" data-next="3b" data-answer="sub5k">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="scenario-option-title">Under $5,000</div>
+          <div class="scenario-option-desc">Below the entry tier. Gifting-only territory.</div>
+        </button>
+        <button class="scenario-option" data-next="3b" data-answer="5k">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="scenario-option-title">$5,000</div>
+          <div class="scenario-option-desc">Entry tier. Minimum effective spend.</div>
+        </button>
+        <button class="scenario-option" data-next="3b" data-answer="10k">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="scenario-option-title">$10,000</div>
+          <div class="scenario-option-desc">Starter tier. Adds basic A/B testing capacity.</div>
+        </button>
+        <button class="scenario-option" data-next="3b" data-answer="25k">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="scenario-option-title">$25,000</div>
+          <div class="scenario-option-desc">Growth tier. Multiple lanes, organic seeding layer.</div>
+        </button>
+        <button class="scenario-option" data-next="3b" data-answer="50k">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="scenario-option-title">$50,000+</div>
+          <div class="scenario-option-desc">Full activation. All four lanes, full-funnel media.</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3B: Co-op - gifted product -->
+    <div class="scenario-step" data-step="3b">
+      <button class="scenario-back" onclick="pickerGoBack('2b')">‹ Back</button>
+      <div class="scenario-question">Is the brand contributing gifted product?</div>
+      <div class="scenario-subtitle">This is the hard prerequisite for the entry-tier economics. Without it, budget allocation has to shift.</div>
+      <div class="scenario-options">
+        <button class="scenario-option" data-next="4b" data-answer="product-yes">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="scenario-option-title">Yes</div>
+          <div class="scenario-option-desc">Brand provides product as in-kind. Standard model holds.</div>
+        </button>
+        <button class="scenario-option" data-next="4b" data-answer="product-no">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+          <div class="scenario-option-title">No</div>
+          <div class="scenario-option-desc">Product cost must come from the co-op budget. Reduces creator and media headroom.</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 4B: Co-op - extended rights -->
+    <div class="scenario-step" data-step="4b">
+      <button class="scenario-back" onclick="pickerGoBack('3b')">‹ Back</button>
+      <div class="scenario-question">Does the brand want extended usage rights?</div>
+      <div class="scenario-subtitle">Baseline is campaign-duration only. Extended rights post-campaign can be priced as an upsell. Open internal question on pricing model.</div>
+      <div class="scenario-options">
+        <button class="scenario-option" data-next="result-coop" data-answer="rights-baseline">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="scenario-option-title">Campaign duration only</div>
+          <div class="scenario-option-desc">Baseline. Rights expire at campaign end. Lowest cost.</div>
+        </button>
+        <button class="scenario-option" data-next="result-coop" data-answer="rights-extended">
+          <div class="scenario-option-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="scenario-option-title">Extended (30 to 90 days post-campaign)</div>
+          <div class="scenario-option-desc">Upsell opportunity. Surfaces internal pricing question.</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- RESULT: Always-on -->
+    <div class="scenario-result" data-result="result-always">
+      <div class="result-header">
+        <div class="result-tag">Recommendation</div>
+        <div class="result-title">Always-on creator engagement</div>
+        <div class="result-subtitle" id="result-always-subtitle">Configuration based on your inputs</div>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-card"><div class="result-card-label">Creator tier</div><div class="result-card-value" id="r-a-tier">Anchor mid-tier</div><div class="result-card-sub" id="r-a-tier-sub">100K to 500K followers</div></div>
+        <div class="result-card"><div class="result-card-label">Remuneration</div><div class="result-card-value" id="r-a-pay">Monthly retainer</div><div class="result-card-sub" id="r-a-pay-sub">Ongoing relationship</div></div>
+        <div class="result-card"><div class="result-card-label">Usage rights</div><div class="result-card-value">12 months</div><div class="result-card-sub">Default included in fee</div></div>
+        <div class="result-card"><div class="result-card-label">Deliverable tier</div><div class="result-card-value" id="r-a-deliv">Full Usage Finished</div><div class="result-card-sub" id="r-a-deliv-sub">Edited file, full rights</div></div>
+      </div>
+
+      <div class="result-section">
+        <div class="result-section-title"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Approach</div>
+        <div class="result-section-body" id="r-a-approach"></div>
+      </div>
+
+      <div class="result-section">
+        <div class="result-section-title"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Watch-outs</div>
+        <div class="result-section-body" id="r-a-watchouts"></div>
+      </div>
+
+      <button class="btn btn-y result-restart" onclick="pickerReset()">‹ Start over</button>
+    </div>
+
+    <!-- RESULT: Co-op -->
+    <div class="scenario-result" data-result="result-coop">
+      <div class="result-header">
+        <div class="result-tag">Recommendation</div>
+        <div class="result-title" id="r-c-title">Co-op activation, Entry tier</div>
+        <div class="result-subtitle" id="r-c-subtitle">$5,000 baseline</div>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-card"><div class="result-card-label">Budget</div><div class="result-card-value" id="r-c-budget">$5,000</div><div class="result-card-sub" id="r-c-tier">Entry tier</div></div>
+        <div class="result-card"><div class="result-card-label">Split</div><div class="result-card-value" id="r-c-split">60% creator  |  40% media</div><div class="result-card-sub" id="r-c-split-sub">$3,000 creator  |  $2,000 media</div></div>
+        <div class="result-card"><div class="result-card-label">Creators</div><div class="result-card-value" id="r-c-creators">2 micro</div><div class="result-card-sub" id="r-c-creators-sub">6 licensed assets total</div></div>
+        <div class="result-card"><div class="result-card-label">Content lanes</div><div class="result-card-value" id="r-c-lanes">1 lane</div><div class="result-card-sub" id="r-c-lanes-sub">Lifestyle or on-foot</div></div>
+        <div class="result-card"><div class="result-card-label">Usage rights</div><div class="result-card-value" id="r-c-rights">Campaign duration only</div><div class="result-card-sub" id="r-c-rights-sub">Baseline</div></div>
+        <div class="result-card"><div class="result-card-label">Lead time</div><div class="result-card-value" id="r-c-lead">3 to 4 weeks</div><div class="result-card-sub">Brief to launch</div></div>
+      </div>
+
+      <div class="result-section">
+        <div class="result-section-title"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Approach</div>
+        <div class="result-section-body" id="r-c-approach"></div>
+      </div>
+
+      <div class="result-section">
+        <div class="result-section-title"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Watch-outs</div>
+        <div class="result-section-body" id="r-c-watchouts"></div>
+      </div>
+
+      <button class="btn btn-y result-restart" onclick="pickerReset()">‹ Start over</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Programme principles.</strong> Content first, creator name second, audience size last. One asset, three placements, prioritised by efficiency: JD owned, Partnership Ads, creator organic. No one-off posts without rights, ever.<br><br>
+  <strong>Where to dig deeper.</strong> Full operational detail in Workbook 12 (PM and reporting), Workbook 13 (creator operations), and the 13 numbered programme documents. Master index in the Document Register.
+</div>
+
+<script>
+// ============================================================
+// CHART.JS - ROI / Self-funding curve
+// ============================================================
+(function() {
+  if (typeof Chart === 'undefined') return;
+  var ctx = document.getElementById('roi-chart');
+  if (!ctx) return;
+
+  // From the original business case model
+  // Monthly spend ($) and efficiency coverage (% of cost)
+  var months = ['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'];
+  var spend = [1000, 3500, 3500, 5000, 6000, 7000, 7500, 8000, 8000, 8000, 8000, 8000];
+  var coverage = [0, 12, 28, 45, 62, 80, 96, 112, 122, 132, 142, 150];
+
+  // Plugin: draw the 100% break-even line
+  var breakEvenLine = {
+    id: 'breakEvenLine',
+    afterDraw: function(chart) {
+      var yScale = chart.scales.y1;
+      if (!yScale) return;
+      var ctx = chart.ctx;
+      var y = yScale.getPixelForValue(100);
+      var leftX = chart.chartArea.left;
+      var rightX = chart.chartArea.right;
+      ctx.save();
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.setLineDash([4, 4]);
+      ctx.lineWidth = 1;
+      ctx.moveTo(leftX, y);
+      ctx.lineTo(rightX, y);
+      ctx.stroke();
+      // Label
+      ctx.setLineDash([]);
+      ctx.font = '600 10px Barlow, sans-serif';
+      ctx.fillStyle = '#fff';
+      ctx.fillText('Break-even (100%)', rightX - 110, y - 4);
+      ctx.restore();
+    }
+  };
+
+  // Plugin: mark the crossover point at month 7
+  var crossoverMarker = {
+    id: 'crossoverMarker',
+    afterDraw: function(chart) {
+      var meta = chart.getDatasetMeta(1); // line dataset
+      if (!meta || !meta.data || !meta.data[6]) return;
+      var point = meta.data[6]; // month 7 = index 6
+      var ctx = chart.ctx;
+      ctx.save();
+      // Star marker
+      ctx.fillStyle = '#FFE000';
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, 7, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      // Label below
+      ctx.font = '700 11px Barlow Condensed, sans-serif';
+      ctx.fillStyle = '#FFE000';
+      ctx.textAlign = 'center';
+      ctx.fillText('M7: BREAK-EVEN', point.x, point.y + 24);
+      ctx.restore();
+    }
+  };
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: months,
+      datasets: [
+        {
+          type: 'bar',
+          label: 'Monthly programme cost',
+          data: spend,
+          backgroundColor: '#3a3a3a',
+          borderColor: '#5a5a5a',
+          borderWidth: 1,
+          yAxisID: 'y',
+          order: 2
+        },
+        {
+          type: 'line',
+          label: 'Efficiency coverage of cost (%)',
+          data: coverage,
+          borderColor: '#FFE000',
+          backgroundColor: 'rgba(255, 224, 0, 0.12)',
+          borderWidth: 2.5,
+          pointBackgroundColor: '#FFE000',
+          pointBorderColor: '#000',
+          pointRadius: 3,
+          pointHoverRadius: 5,
+          fill: true,
+          tension: 0.3,
+          yAxisID: 'y1',
+          order: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#141414',
+          borderColor: '#FFE000',
+          borderWidth: 1,
+          titleColor: '#FFE000',
+          bodyColor: '#fff',
+          padding: 10,
+          callbacks: {
+            label: function(ctx) {
+              if (ctx.dataset.yAxisID === 'y') {
+                return 'Cost: $' + ctx.parsed.y.toLocaleString();
+              }
+              return 'Coverage: ' + ctx.parsed.y + '% of cost';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: '#757575', font: { size: 10, weight: '600' } }
+        },
+        y: {
+          position: 'left',
+          beginAtZero: true,
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: {
+            color: '#b8b8b8',
+            font: { size: 10 },
+            callback: function(v) { return '$' + (v/1000) + 'K'; }
+          },
+          title: { display: true, text: 'Monthly cost', color: '#757575', font: { size: 10, weight: '600' } }
+        },
+        y1: {
+          position: 'right',
+          beginAtZero: true,
+          max: 170,
+          grid: { display: false },
+          ticks: {
+            color: '#FFE000',
+            font: { size: 10, weight: '600' },
+            callback: function(v) { return v + '%'; }
+          },
+          title: { display: true, text: 'Coverage %', color: '#FFE000', font: { size: 10, weight: '600' } }
+        }
+      }
+    },
+    plugins: [breakEvenLine, crossoverMarker]
+  });
+})();
+
+// ============================================================
+// STICKY NAV - scroll spy
+// ============================================================
+(function() {
+  var navItems = document.querySelectorAll('.nav-item');
+  var sections = document.querySelectorAll('.section');
+  function onScroll() {
+    var scrollY = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(s) {
+      if (s.offsetTop <= scrollY) current = s;
+    });
+    navItems.forEach(function(item) {
+      item.classList.toggle('active', item.dataset.target === current.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// ============================================================
+// GANTT - click to expand
+// ============================================================
+(function() {
+  document.querySelectorAll('.gantt-bar').forEach(function(bar) {
+    bar.addEventListener('click', function() {
+      var targetId = bar.getAttribute('data-target');
+      var detail = document.getElementById(targetId);
+      if (!detail) return;
+      detail.classList.toggle('open');
+    });
+  });
+
+  function setupToggle(buttonId) {
+    var btn = document.getElementById(buttonId);
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var wrap = btn.closest('.gantt-wrap');
+      var details = wrap.querySelectorAll('.gantt-detail');
+      var allOpen = Array.from(details).every(function(d) { return d.classList.contains('open'); });
+      details.forEach(function(d) {
+        if (allOpen) d.classList.remove('open');
+        else d.classList.add('open');
+      });
+      btn.classList.toggle('active', !allOpen);
+      btn.textContent = allOpen ? 'Expand all' : 'Collapse all';
+    });
+  }
+  setupToggle('toggle-always');
+  setupToggle('toggle-coop');
+})();
+
+// ============================================================
+// SCENARIO PICKER
+// ============================================================
+var pickerState = {
+  activation: null,
+  creatorRole: null,
+  deliverable: null,
+  budget: null,
+  product: null,
+  rights: null,
+  history: ['1']
+};
+
+function pickerShowStep(stepId) {
+  document.querySelectorAll('.scenario-step').forEach(function(s) {
+    s.classList.toggle('active', s.dataset.step === stepId);
+  });
+  document.querySelectorAll('.scenario-result').forEach(function(r) {
+    r.classList.remove('active');
+  });
+  pickerUpdateProgress();
+}
+
+function pickerShowResult(resultId) {
+  document.querySelectorAll('.scenario-step').forEach(function(s) { s.classList.remove('active'); });
+  document.querySelectorAll('.scenario-result').forEach(function(r) {
+    r.classList.toggle('active', r.dataset.result === resultId);
+  });
+  pickerUpdateProgress(true);
+}
+
+function pickerGoBack(stepId) {
+  pickerState.history.pop();
+  pickerShowStep(String(stepId));
+}
+
+function pickerReset() {
+  pickerState = { activation: null, creatorRole: null, deliverable: null, budget: null, product: null, rights: null, history: ['1'] };
+  pickerShowStep('1');
+}
+
+function pickerUpdateProgress(complete) {
+  var pips = document.querySelectorAll('#picker-progress .scenario-progress-pip');
+  var n = pickerState.history.length;
+  pips.forEach(function(p, i) {
+    p.classList.remove('done', 'current');
+    if (complete) p.classList.add('done');
+    else if (i < n - 1) p.classList.add('done');
+    else if (i === n - 1) p.classList.add('current');
+  });
+}
+
+(function() {
+  document.querySelectorAll('.scenario-option').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      var next = opt.getAttribute('data-next');
+      var answer = opt.getAttribute('data-answer');
+      var step = opt.closest('.scenario-step');
+      var stepId = step.getAttribute('data-step');
+
+      // Record answer
+      if (stepId === '1') pickerState.activation = answer;
+      else if (stepId === '2a') pickerState.creatorRole = answer;
+      else if (stepId === '3a') pickerState.deliverable = answer;
+      else if (stepId === '2b') pickerState.budget = answer;
+      else if (stepId === '3b') pickerState.product = answer;
+      else if (stepId === '4b') pickerState.rights = answer;
+
+      if (next && next.indexOf('result') === 0) {
+        if (next === 'result-always') buildAlwaysResult();
+        else if (next === 'result-coop') buildCoopResult();
+        pickerShowResult(next);
+      } else if (next) {
+        pickerState.history.push(next);
+        pickerShowStep(next);
+      }
+    });
+  });
+})();
+
+function buildAlwaysResult() {
+  var role = pickerState.creatorRole;
+  var deliv = pickerState.deliverable;
+
+  var roleMap = {
+    'anchor': { tier: 'Anchor mid-tier', sub: '100K to 500K followers', pay: 'Monthly retainer', paySub: 'Ongoing relationship, series format' },
+    'rotating-micro': { tier: 'Rotating micro', sub: '10K to 100K followers', pay: 'Pay per package', paySub: 'Per-package fee, multiple creators' },
+    'employee': { tier: 'Employee', sub: 'Internal pool, any size', pay: 'Gifting + spot fees', paySub: 'Product plus per-deliverable spot fees' },
+    'customer': { tier: 'Customer', sub: 'Loyalty-sourced, any size', pay: 'Gifting', paySub: 'Product only, no fee' }
+  };
+  var delivMap = {
+    'everything': { name: 'Everything', sub: 'Full ownership + raw + finished' },
+    'full-finished': { name: 'Full Usage Finished', sub: 'Edited file, 12-month usage' },
+    'full-raw': { name: 'Full Usage Raw', sub: 'Raw footage, JD edits in-house' },
+    'organic-only': { name: 'Organic Only', sub: 'No paid use, organic channels only' }
+  };
+
+  var r = roleMap[role] || roleMap['anchor'];
+  var d = delivMap[deliv] || delivMap['full-finished'];
+
+  document.getElementById('r-a-tier').textContent = r.tier;
+  document.getElementById('r-a-tier-sub').textContent = r.sub;
+  document.getElementById('r-a-pay').textContent = r.pay;
+  document.getElementById('r-a-pay-sub').textContent = r.paySub;
+  document.getElementById('r-a-deliv').textContent = d.name;
+  document.getElementById('r-a-deliv-sub').textContent = d.sub;
+  document.getElementById('result-always-subtitle').textContent = r.tier + ' on ' + r.pay.toLowerCase();
+
+  // Approach
+  var approach = '';
+  if (role === 'anchor') {
+    approach = '<ul><li>Source via outreach or agency. Vet against the scorecard with a heavy weight on content quality and product fit.</li><li>Lock a 6 to 12 month retainer covering a steady cadence (typically 4 to 6 deliverables per month).</li><li>Set up a series format (recurring content franchise) so the asset library builds with continuity.</li><li>Whitelist the handle for Partnership Ads on contract close. This is the efficiency engine.</li></ul>';
+  } else if (role === 'rotating-micro') {
+    approach = '<ul><li>Recruit through the application form. Vet for content quality. Build a 6 to 10 creator rotation.</li><li>Use pay-per-package to manage cashflow. Each package is 2 to 3 deliverables.</li><li>Rotate briefs across the four content lanes to test which creators perform best in which lane.</li><li>Whitelist all handles for Partnership Ads. Test creative variants at low spend before scaling.</li></ul>';
+  } else if (role === 'employee') {
+    approach = '<ul><li>Source from the internal pool. Run a short voluntary signup with senior marketing approval.</li><li>Use gifting plus modest spot fees per deliverable to acknowledge time.</li><li>Lean into authentic in-store and on-foot content. The unique JD advantage.</li><li>Treat as a feeder pool. Top performers can graduate to a rotating micro tier with a more formal contract.</li></ul>';
+  } else {
+    approach = '<ul><li>Source from loyalty data. Find members with social presence who already advocate for JD.</li><li>Gift product only. No fees at this tier. The relationship is the asset.</li><li>Use Customer content for testimonial-style assets. Highest authenticity, lowest cost.</li><li>Convert top performers into a paid relationship if metrics warrant.</li></ul>';
+  }
+  document.getElementById('r-a-approach').innerHTML = approach;
+
+  // Watch-outs
+  var watchouts = '<ul>';
+  if (role === 'anchor') {
+    watchouts += '<li><strong>Single-point-of-failure risk.</strong> If the anchor pulls out mid-contract, the programme has a content gap. Always have a backup roster in motion.</li><li><strong>Cost commitment.</strong> Retainers are 6 to 12 month commitments. Make sure performance review cadence is locked in so a non-performer can be moved off.</li>';
+  } else if (role === 'rotating-micro') {
+    watchouts += '<li><strong>Brief quality scales linearly.</strong> Six creators means six briefs. Modular brief blocks become critical.</li><li><strong>Quality variance.</strong> Lower price per package means accepting more variation. Vet hard upfront.</li>';
+  } else if (role === 'employee') {
+    watchouts += '<li><strong>Time commitment from creators.</strong> Employees have a day job. Set realistic deliverable cadence (1 to 2 per month max).</li><li><strong>Compliance.</strong> Employee status changes the disclosure language. Confirm with legal.</li>';
+  } else {
+    watchouts += '<li><strong>Inconsistent delivery.</strong> Customer creators are not bound by deadlines the same way paid creators are.</li><li><strong>Authenticity vs polish.</strong> Customer content reads as real, which is the value. Do not over-direct it.</li>';
+  }
+  if (deliv === 'organic-only') {
+    watchouts += '<li><strong>No Partnership Ads use.</strong> Organic Only deliverables cannot run as paid creative. This removes the efficiency engine. Make sure the trade-off is worth it.</li>';
+  }
+  watchouts += '</ul>';
+  document.getElementById('r-a-watchouts').innerHTML = watchouts;
+}
+
+function buildCoopResult() {
+  var budget = pickerState.budget;
+  var product = pickerState.product;
+  var rights = pickerState.rights;
+
+  var tiers = {
+    'sub5k': { name: 'Sub-entry  |  Gifting only', budget: '< $5,000', split: 'No paid media', splitSub: 'Product gifting only', creators: '3 to 5 nano', creatorsSub: 'Earned reach only, no licensed asset', lanes: 'No structured lane', lanesSub: 'Discovery / brand seeding', lead: '2 to 3 weeks' },
+    '5k': { name: 'Entry tier', budget: '$5,000', split: '60% creator  |  40% media', splitSub: '$3,000 creator  |  $2,000 media', creators: '2 micro', creatorsSub: '6 licensed assets total', lanes: '1 lane', lanesSub: 'Lifestyle or on-foot', lead: '3 to 4 weeks' },
+    '10k': { name: 'Starter tier', budget: '$10,000', split: '55% creator  |  45% media', splitSub: '$5,500 creator  |  $4,500 media', creators: '3 to 4 micro', creatorsSub: '8 to 10 licensed assets', lanes: '2 lanes', lanesSub: 'Lifestyle + on-foot', lead: '4 to 5 weeks' },
+    '25k': { name: 'Growth tier', budget: '$25,000', split: '40% creator  |  60% media', splitSub: '$10,000 creator  |  $15,000 media', creators: '4 to 6 micro and mid-tier', creatorsSub: '12 to 16 assets, organic seeding layer', lanes: '3 lanes', lanesSub: 'Lifestyle, on-foot, styling', lead: '5 to 6 weeks' },
+    '50k': { name: 'Full activation', budget: '$50,000+', split: '30% creator  |  70% media', splitSub: '$15,000 creator  |  $35,000 media', creators: '6 to 8 across micro + mid-tier', creatorsSub: '20+ assets, all formats', lanes: 'All 4 lanes', lanesSub: 'Lifestyle, on-foot, styling, performance', lead: '6 to 8 weeks' }
+  };
+
+  var t = tiers[budget] || tiers['5k'];
+
+  document.getElementById('r-c-title').textContent = 'Co-op activation, ' + t.name;
+  document.getElementById('r-c-subtitle').textContent = t.budget + ' baseline';
+  document.getElementById('r-c-budget').textContent = t.budget;
+  document.getElementById('r-c-tier').textContent = t.name;
+  document.getElementById('r-c-split').textContent = t.split;
+  document.getElementById('r-c-split-sub').textContent = t.splitSub;
+  document.getElementById('r-c-creators').textContent = t.creators;
+  document.getElementById('r-c-creators-sub').textContent = t.creatorsSub;
+  document.getElementById('r-c-lanes').textContent = t.lanes;
+  document.getElementById('r-c-lanes-sub').textContent = t.lanesSub;
+  document.getElementById('r-c-rights').textContent = rights === 'rights-extended' ? 'Extended (30 to 90 days)' : 'Campaign duration only';
+  document.getElementById('r-c-rights-sub').textContent = rights === 'rights-extended' ? 'Upsell tier' : 'Baseline';
+  document.getElementById('r-c-lead').textContent = t.lead;
+
+  // Approach
+  var approach = '';
+  if (budget === 'sub5k') {
+    approach = '<ul><li>This sits below the minimum effective spend for a paid activation. The realistic option is a gifting-only seed.</li><li>Identify 3 to 5 nano creators (under 10K followers) who fit the brand aesthetic. Gift product, no fee.</li><li>Expect 20 to 30% of seeded creators to post organically. No licensed asset, no Partnership Ads.</li><li>Pitch this as brand seeding, not as a campaign. Use it to test creator relationships before a larger spend.</li></ul>';
+  } else if (budget === '5k') {
+    approach = '<ul><li>Lock the 60/40 creator-to-media split. $3,000 covers 2 micro creators with 3 deliverables each.</li><li>Pick 1 content lane and stay focused. Multi-lane at this budget dilutes the result.</li><li>Run a 2-week Partnership Ads flight. Tight targeting, no full-funnel.</li><li>Use this as a proof point to scale up with the brand partner.</li></ul>';
+  } else if (budget === '10k') {
+    approach = '<ul><li>Step up to 3 to 4 creators across 2 lanes. Mix lifestyle and on-foot.</li><li>Use the increased media budget to A/B test creative formats during the flight.</li><li>Still micro-only at this tier. Mid-tier creators cost too much per asset for $10K to justify.</li><li>Keep usage to campaign duration unless brand specifically requests extended rights.</li></ul>';
+  } else if (budget === '25k') {
+    approach = '<ul><li>Mix micro and mid-tier creators (4 to 6 total). Mid-tier brings polish, micro brings volume.</li><li>Cover 3 of the 4 content lanes. Match to the brand partner aesthetic.</li><li>Add an organic seeding layer (gift to 10 to 15 additional creators) on top of paid roster.</li><li>Full-funnel media: upper-funnel awareness ads plus retargeting.</li></ul>';
+  } else {
+    approach = '<ul><li>Full activation. Anchor mid-tier creator plus rotating micro pool (6 to 8 creators total).</li><li>All four content lanes covered. Build a content library that supports brand post-campaign.</li><li>Full Meta funnel: prospecting, mid-funnel, retargeting. Add JD email and SMS touchpoints.</li><li>Pitch a follow-on always-on extension as the obvious next step.</li></ul>';
+  }
+  document.getElementById('r-c-approach').innerHTML = approach;
+
+  // Watch-outs
+  var watchouts = '<ul>';
+  if (budget === 'sub5k') {
+    watchouts += '<li><strong>No guaranteed deliverables.</strong> Gifting is best-effort. Set brand partner expectations carefully.</li><li><strong>No paid efficiency story.</strong> This activation cannot demonstrate the Partnership Ads ROAS uplift. Frame as relationship-building.</li>';
+  }
+  if (product === 'product-no') {
+    watchouts += '<li><strong>No gifted product from the brand.</strong> Product cost has to come from the co-op budget. At $5K this could halve the creator pool. Push back on this assumption with the brand partner if possible.</li>';
+  }
+  if (rights === 'rights-extended') {
+    watchouts += '<li><strong>Extended usage rights are an open internal question.</strong> No formal pricing model exists yet. Hold the conversation until we set a default uplift (suggest 15 to 25% on the creator fee per 30 days extension).</li>';
+  }
+  if (budget === '25k' || budget === '50k') {
+    watchouts += '<li><strong>Lead time creep.</strong> At $25K+ the lead time stretches past 5 weeks. Make sure the brand partner is briefed on this early. They tend to expect 2 weeks.</li>';
+  }
+  watchouts += '<li><strong>Partnership Ads prerequisite.</strong> Creator handles must be whitelisted before contract closes. If this gets missed in onboarding, the efficiency model collapses.</li>';
+  watchouts += '</ul>';
+  document.getElementById('r-c-watchouts').innerHTML = watchouts;
+}
+</script>
+
+</body>
+</html>
